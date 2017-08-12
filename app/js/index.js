@@ -5,14 +5,36 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from "./Animal";
-logTitle('Array Destructuring');
+logTitle('object Destructuring');
 /* coding examples */
-const names = ['Anna', 'Mariam', 'Joe', 'Mark', 'Matt'];
-// const anna = names[0];
-// const mariam = names[1];
-// const joe = names[2];
+const getUser = () => {
+  return {
+    name: 'John',
+    surname: 'Doe',
+    gender: 'male',
+    address: {
+      country: 'United States',
+      city: 'California',
+      postCode: 'CA',
+      fullAddress: {
+        doorNumber: 22,
+        street: 'LA st'
+      }
+    },
+    age: 29
+  }
+};
 
-const [anna, mariam, joe, ...restOfNames ] = names;
+const user = getUser();
 
-log(`${anna} ${mariam} ${joe}`);
-log(`${restOfNames.length}`)
+// const name = user.name;
+// const age = user.age;
+// const country = user.address.country;
+const doorNumber = user.address.fullAddress.doorNumber;
+
+const { name, age, address : { country : theCountry} } = user;
+const { address : { fullAddress : { doorNumber : number }}} = user;
+log(name);
+log(age);
+log(theCountry);
+log(number);
