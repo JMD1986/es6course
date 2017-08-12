@@ -5,20 +5,14 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from "./Animal";
-logTitle('Enhanced Object Properties');
+logTitle('Array Destructuring');
 /* coding examples */
-const pricePropName = "PRICE";
-const calculator = (name, price) => {
-  return {
-    name,
-    add(n1, n2) {
-      return n1 + n2
-    },
-    [pricePropName.toLowerCase()] : price
-  }
-}
-const calc = calculator('casio', 199.99);
+const names = ['Anna', 'Mariam', 'Joe', 'Mark', 'Matt'];
+// const anna = names[0];
+// const mariam = names[1];
+// const joe = names[2];
 
-log(calc.name);
-log(calc.add(20,20));
-log(calc.price);
+const [anna, mariam, joe, ...restOfNames ] = names;
+
+log(`${anna} ${mariam} ${joe}`);
+log(`${restOfNames.length}`)
