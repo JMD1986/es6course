@@ -38,3 +38,5 @@ log(name);
 log(age);
 log(theCountry);
 log(number);
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
