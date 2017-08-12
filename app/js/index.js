@@ -5,12 +5,19 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from "./Animal";
-logTitle('Template Literals');
+logTitle('Spread Operator Objects');
 /* coding examples */
-const name = 'Anna';
-const country = "America";
-const age = 23;
+const address = {
+  city: "Chattanooga",
+  country: "USA",
+  postCode: '37377'
+};
 
-log(`name: ${name.length} Country ${country}  age ${age}`);
+const name = {
+  firstName: "John",
+  lastName: "Daugherty"
+};
 
-/* more info here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals */
+const person = {...address, ...name};
+
+log(JSON.stringify(person, null, 2));
