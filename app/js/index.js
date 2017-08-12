@@ -5,15 +5,20 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from "./Animal";
-logTitle('Lexical this');
+logTitle('Enhanced Object Properties');
 /* coding examples */
-const person = {
-  name: "John",
-  cars: ['bike', 'camero'],
-  toString: function() {
-    this.cars.forEach((car) => {
-      log(`${this.name} has ${car}`);
-    });
+const pricePropName = "PRICE";
+const calculator = (name, price) => {
+  return {
+    name,
+    add(n1, n2) {
+      return n1 + n2
+    },
+    [pricePropName.toLowerCase()] : price
   }
 }
-person.toString();
+const calc = calculator('casio', 199.99);
+
+log(calc.name);
+log(calc.add(20,20));
+log(calc.price);
