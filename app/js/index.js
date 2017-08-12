@@ -5,19 +5,23 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from "./Animal";
-logTitle('Spread Operator Objects');
+logTitle('Arrow Functions');
 /* coding examples */
-const address = {
-  city: "Chattanooga",
-  country: "USA",
-  postCode: '37377'
+const hello = () => {
+  const es6 = 'ES6';
+  return `Hello ${es6}`;
 };
 
-const name = {
-  firstName: "John",
-  lastName: "Daugherty"
-};
+const powers = [1,2,3,4,5].map((number, index) => Math.pow(number, index));
 
-const person = {...address, ...name};
 
-log(JSON.stringify(person, null, 2));
+const add = (n1, n2) =>  n1 + n2;
+
+
+const milesToKm = miles => miles * 1.60934;
+
+
+log(hello());
+log(powers);
+log(add(100,100));
+log(milesToKm(100));
