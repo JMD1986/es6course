@@ -18,7 +18,24 @@ class Animal {
   sleep(){
     log(`${this.name} is eating`);
   }
+  logAge(){
+    log(`${this.name} is ${this.age} years old!`);
+  }
 }
-const bobby = new Animal("Bobby", 2);
-bobby.eat();
-bobby.sleep();
+
+class Dog extends Animal {
+  constructor(name, age, breed){
+    super(name, age)
+    this.breed = breed;
+  }
+  logBreed(){
+    log(`${this.name} is a ${this.breed}`)
+  }
+  logAgeFromDog(){
+    super.logAge();
+  }
+}
+
+const mike = new Dog("mike", 4, 'bulldog');
+mike.logBreed();
+mike.logAgeFromDog();
