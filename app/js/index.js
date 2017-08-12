@@ -5,14 +5,12 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from "./Animal";
-logTitle('Const Keyword');
+logTitle('Template Literals');
 /* coding examples */
-const person = {};
-person['name'] = 'John';
+const name = 'Anna';
+const country = "America";
+const age = 23;
 
-log(person.name);
+log(`name: ${name.length} Country ${country}  age ${age}`);
 
-const array = [];
-array.push('John');
-
-log(array[0]);
+/* more info here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals */
