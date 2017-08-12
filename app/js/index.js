@@ -5,11 +5,14 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from "./Animal";
-logTitle('Let Keyword');
+logTitle('Const Keyword');
 /* coding examples */
-/* here we are using the let keyword to make the variable local to the block behind the for loop */
-for(let i =0; i <10; i++) {
-  log(i);
-}
-/* notice that when you inspect i is not defined due to its scope! */
-log(i);
+const person = {};
+person['name'] = 'John';
+
+log(person.name);
+
+const array = [];
+array.push('John');
+
+log(array[0]);
