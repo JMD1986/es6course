@@ -4,14 +4,21 @@ require('styles/main.scss');
 import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-import Animal from "./Animal";
-logTitle('Function default parameters');
+logTitle('ES6 Classes');
 /* coding examples */
-const calculatePay = (yearSalary, bonus = {
-  teamBonus : 0,
-  employeeBonus: 0
-}) => {
-  return yearSalary + bonus.teamBonus + bonus.employeeBonus;
+class Animal {
+  constructor(name, age) {
+    log(`${name} is an animal and was created`);
+    this.name = name;
+    this.age = age;
+  }
+  eat() {
+    log(`${this.name} is eating`);
+  }
+  sleep(){
+    log(`${this.name} is eating`);
+  }
 }
-
-log(calculatePay(20000, {teamBonus: 2000, employeeBonus: 500}));
+const bobby = new Animal("Bobby", 2);
+bobby.eat();
+bobby.sleep();
