@@ -1,24 +1,22 @@
 /* styling */
 require('styles/main.scss');
 /* js */
-import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
-logTitle('Promises');
-/* coding examples */
+logTitle('Generators');
 
-const promise = new Promise((resolve, reject) =>{
-  setTimeout(()=>{
-    resolve("data back from the server");
-  }, 3000);
+const getNumbers = function* () {
+  yield 1;
+  yield "hello";
+  yield true;
+  yield { name: 'Alex'};
+  return "i am done";
+}
 
-  setTimeout(()=>{
-    reject("no data back from the server, there was an error");
-  }, 5000);
-});
+const numbersGen = getNumbers();
 
-promise.then(response => {
-  log(response);
-}).catch(error => {
-  log(error);
-})
+log(numbersGen.next().value);
+log(numbersGen.next().value);
+log(numbersGen.next().value);
+log(JSON.stringify(numbersGen.next().value));
+log(numbersGen.next().value);
