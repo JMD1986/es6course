@@ -5,38 +5,13 @@ import $ from 'jquery';
 import { log, logTitle } from 'logger';
 /* your imports */
 import Animal from "./Animal";
-logTitle('object Destructuring');
+logTitle('Function default parameters');
 /* coding examples */
-const getUser = () => {
-  return {
-    name: 'John',
-    surname: 'Doe',
-    gender: 'male',
-    address: {
-      country: 'United States',
-      city: 'California',
-      postCode: 'CA',
-      fullAddress: {
-        doorNumber: 22,
-        street: 'LA st'
-      }
-    },
-    age: 29
-  }
-};
+const calculatePay = (yearSalary, bonus = {
+  teamBonus : 0,
+  employeeBonus: 0
+}) => {
+  return yearSalary + bonus.teamBonus + bonus.employeeBonus;
+}
 
-const user = getUser();
-
-// const name = user.name;
-// const age = user.age;
-// const country = user.address.country;
-const doorNumber = user.address.fullAddress.doorNumber;
-
-const { name, age, address : { country : theCountry} } = user;
-const { address : { fullAddress : { doorNumber : number }}} = user;
-log(name);
-log(age);
-log(theCountry);
-log(number);
-
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+log(calculatePay(20000, {teamBonus: 2000, employeeBonus: 500}));
